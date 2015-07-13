@@ -7,5 +7,8 @@ router.get('/', function(req, res, next) {
 });
 router.get('/quizes/question', quizController.question);
 router.post('/quizes/answer', quizController.answer);
+router.get('/author', function(req, res) {
+  res.render('author');
+});
 
 module.exports = router;
