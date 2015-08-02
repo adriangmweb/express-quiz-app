@@ -17,7 +17,7 @@ var Sequelize = require("sequelize");
 
 //Usar DB SQLite o Postgres
 var sequelize = new Sequelize(DB_name, user, pass_db, {
-                      dialect: dialect,
+                      dialect: protocol,
                       protocol: protocol,
                       port: port,
                       host: host,
