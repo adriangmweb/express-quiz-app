@@ -1,8 +1,28 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+* { margin: 0; }
 
-a {
-  color: #00B7FF;
+body {
+  font: 16px Georgia, serif;
+}
+#h1, #f1{
+  background-color: rgb(199, 172, 71);
+}
+#page-wrap {
+  margin: 0 auto;
+  color: white;
+}
+#page-wrap > .main {
+  border: .5px solid #999;
+  padding: 1%;
+  margin-bottom: 1px;
+  color: black;
+}
+section < div {
+  padding: 20px;
+}
+header, nav, section, footer {
+  background: #eee;
+  text-align: center;
+}
+nav span {
+  margin: 0 10px 0 0;
 }
