@@ -5,8 +5,12 @@ var quizController = require('../controllers/quiz_controller.js');
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Quizz' });
 });
-router.get('/quizes/question', quizController.question);
-router.post('/quizes/answer', quizController.answer);
+
+router.param('quizId', quizController.load);
+
+router.get('/quizes', quizController.index);
+router.get('/quizes/:quizId(\\d+)', quizController.show);
+router.post('/quizes/:quizId(\\d+)/answer', quizController.answer);
 router.get('/author', function(req, res) {
   res.render('author');
 });

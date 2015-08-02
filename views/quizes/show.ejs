@@ -1,0 +1,7 @@
+<form id="show" action="/quizes/<%= quiz.id %>/answer" method="get">
+  <h4 id=pregunta>Pregunta: <%= quiz.pregunta %></h4>
+  <p id="pista">Pista: <%= quiz.pista %></p>
+  <input type="text" name="respuesta" placeholder="Responder">
+  <input type="submit" value="Enviar">
+  <h5><small>No olvides usar las mayúsculas</small></h5>
+</form>

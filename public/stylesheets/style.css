@@ -26,3 +26,6 @@ header, nav, section, footer {
 nav span {
   margin: 0 10px 0 0;
 }
+#pregunta, #pista, #show input {
+  margin-bottom: 1em;
+}

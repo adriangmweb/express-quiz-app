@@ -38,7 +38,12 @@ sequelize.sync().then(function() {
       Quiz.create({
         pregunta: '¿Cuál es la capital de Italia?',
         respuesta: 'Roma',
-        pista: "No olvides las mayúsculas"
+        pista: "Sus soldados luchaban contra Asterix y Obelix."
+      });
+      Quiz.create({
+        pregunta: "¿Cuál es la capital de Portugal?",
+        respuesta: "Lisboa",
+        pista: "Incluye el nombre de una serpiente."
       })
       .then(function(){console.log('La base de datos se ha inicializado')});
     };
