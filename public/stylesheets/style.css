@@ -29,3 +29,21 @@ nav span {
 #pregunta, #pista, #show input {
   margin-bottom: 1em;
 }
+#ErrorMsg {
+  color: #f61;
+  font-size: smaller;
+}
+a{
+  text-decoration: none;
+  color: rgb(193, 147, 31);
+}
+footer a{
+  color: white;
+  padding: 0 1em 0 1em;
+}
+td {
+  padding: .8em;
+}
+table{
+  padding-bottom: 1em;
+}

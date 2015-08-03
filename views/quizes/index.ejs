@@ -13,6 +13,15 @@
       <td>
         <a href="quizes/<%= quizes[i].id %>"> <%= quizes[i].pregunta %></a>
       </td>
+      <td>
+        <a href="quizes/<%= quizes[i].id %>/edit"><button type="button" name="button">Editar</button></a>
+      </td>
+      <td>
+        <form action="quizes/<%= quizes[i].id %>?_method=delete" method="post">
+          <button type="submit" onClick="return confirm('¿Estás seguro de borrar: <%= quizes[i].pregunta %>?');">Borrar</button>
+        </form>
+      </td>
     </tr>
   <% } %>
 </table>
+<a id="crearPreg" href="quizes/new">Crear nueva pregunta</a>

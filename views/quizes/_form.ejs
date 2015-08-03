@@ -1,0 +1,26 @@
+<label for="preg" class="rem">Pregunta: </label>
+<input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>">
+<label for="resp" class="rem">Respuesta: </label>
+<input id="resp" type="text" name="quiz[respuesta]" value="<%= quiz.respuesta %>">
+<label for="pist" class="rem">Pista: </label>
+<input id="pist" type="text" name="quiz[pista]" value="<%= quiz.pista %>">
+<label for="tema">Tema: </label>
+<select id="tema" name="quiz[tema]">
+  <option value="otro" selected>Otro</option>
+  <option value="humanidades">Humanidades</option>
+  <option value="ocio">Ocio</option>
+  <option value="ciencia">Ciencia</option>
+  <option value="tecnologia">Tecnología</option>
+</select>
+<a href="/quizes"><button type="button">Cancelar</button></a>
+<input type="submit" value="Enviar">
+
+<script type="text/javascript">
+  var a = document.getElementById('tema');
+  for (var i=0;i <a.options.length; i++){
+    if (a.options[i].value === '<%= quiz.tema %>'){
+      a.options[0].removeAttribute("selected");
+      a.options[i].setAttribute("selected", '');
+    }
+  }
+</script>
