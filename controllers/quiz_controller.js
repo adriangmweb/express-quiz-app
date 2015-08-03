@@ -13,7 +13,7 @@ exports.load = function(req, res, next, quizId) {
 ).catch(function(error){ next(error)});
 }
 
-exports.index = function (req, res) {
+exports.index = function (req, res, next) {
   if (req.query.search){
     models.Quiz.findAll({ where: ["pregunta like ?", "%"+ req.query.search +"%"] }).then(function(quizes) {
       res.render('quizes/index', {quizes: quizes, errors: []});
