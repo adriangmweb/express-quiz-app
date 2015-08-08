@@ -1,0 +1,24 @@
+<h2>Estadísticas actuales</h2>
+<hr><br>
+Preguntas: <%= quizes.length %>
+<br>
+Comentarios: <%= comments.length %>
+<br>
+
+<%
+var withCom = [];
+  for (var i = 0; i < comments.length; i++) {
+    if (withCom.indexOf(comments[i].QuizId) === -1){
+      withCom.push(comments[i].QuizId);
+    }
+  }
+%>
+
+Media de comentarios por pregunta:
+<%= (comments.length/quizes.length) %>
+<br>
+Preguntas sin comentario:
+<%= Math.abs(withCom.length - quizes.length) %>
+<br>
+Preguntas con comentario
+<%= withCom.length %>

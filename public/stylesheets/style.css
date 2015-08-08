@@ -37,7 +37,7 @@ a{
   text-decoration: none;
   color: rgb(193, 147, 31);
 }
-footer a{
+footer a, header a{
   color: white;
   padding: 0 1em 0 1em;
 }
@@ -47,3 +47,5 @@ td {
 table{
   padding-bottom: 1em;
 }
+p { padding-bottom: .5em;}
+.right {float: right;}

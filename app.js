@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var partials = require('express-partials');
 var methodOverride = require('method-override');
+var session = require('express-session');
 
 var routes = require('./routes/index');
 //var users = require('./routes/users');
@@ -21,10 +22,36 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
+app.use(cookieParser('Quiz 2015'));
+app.use(session());
 app.use(methodOverride('_method')); //_method para buscarlos en la ruta
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(partials());
+
+//Control de tiempo de sesión, 2min max
+app.use(function(req, res, next){
+  var horaActual = new Date();
+  horaActual = horaActual.getTime();
+
+  req.session.ultimaVez = req.session.ultimaVez || horaActual;
+
+  if(req.session.ultimaVez - horaActual >= 120000) {
+    delete req.session.user;
+  }
+  req.session.ultimaVez = horaActual;
+  next();
+});
+
+//Helpers dinámicos
+app.use(function(req, res, next){
+  //guarda el path para redireccionar al usuario después del login
+  if(!req.path.match(/\/login|\/logout/)){
+    req.session.redir = req.path;
+  }
+  //Hacer req.session visibile
+  res.locals.session = req.session;
+  next();
+});
 
 app.use('/', routes);
 //app.use('/users', users);
